@@ -1,1 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-k8-tekton-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs-k8-tekton
+  template:
+    metadata:
+      labels: 
+        app: nodejs-k8-tekton
+    spec:                   
+      containers: 
+      - name: nodejs-k8-tekton
+        image: mkhilnan/nodejs-k8-tekton:v1.0
+        ports:
+        - containerPort: 4000
+          name: http-web-svc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-k8-tekton-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: nodejs-k8-tekton
+  ports:
+    - port: 9000
+      targetPort: http-web-svc
 
