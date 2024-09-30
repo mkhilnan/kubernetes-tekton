@@ -18,6 +18,8 @@ spec:
         ports:
         - containerPort: 4000
           name: http-web-svc
+      imagePullSecrets:
+      - name: myregistry-secret
 ---
 apiVersion: v1
 kind: Service
