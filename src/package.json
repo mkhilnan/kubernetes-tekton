@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-k8-tekton",
+  "version": "1.0.0",
+  "description": "nodejs k8 tekton",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
+
